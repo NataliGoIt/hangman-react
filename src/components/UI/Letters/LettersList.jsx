@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "antd";
 import styles from "./Letters.module.css";
-function Letters() {
+function Letters({ onClick }) {
   const lettersArray = [
     "а",
     "б",
@@ -38,15 +38,13 @@ function Letters() {
     "я",
   ];
   return (
-    <div className={styles.lettersContainer}>
-      {lettersArray.map((item) => {
-        return (
-          <div key={item}>
-            <Button type="text">{item}</Button>
-          </div>
-        );
-      })}
-    </div>
+    <ul className={styles.lettersContainer} onClick={onClick}>
+      {lettersArray.map((item) => (
+        <li key={item}>
+          <Button type="text">{item}</Button>
+        </li>
+      ))}
+    </ul>
   );
 }
 export default Letters;
